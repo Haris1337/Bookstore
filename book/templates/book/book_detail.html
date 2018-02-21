@@ -1,0 +1,14 @@
+{% extends 'book/base.html' %}
+
+{% block content %}
+<div class="book_detail">
+	<div class="book">
+		<h2>Title:{{book.title}}</h2>
+		<p>Price:{{book.price}}</p>
+		<form action="." method="post">
+            {{ pform }}
+			{% csrf_token %}
+<input type="submit"value="Purchase">
+	</div>
+</div>
+{% endblock %}

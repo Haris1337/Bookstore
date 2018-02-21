@@ -1,0 +1,50 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hackathon 2018</title>
+
+     <link href="{% static "css/store.css" %}" rel="stylesheet"> 
+    
+</head>
+
+<body>
+<header>
+    <div class="page-header">
+        <h1><a href="/books/">Bookstore</a></h1>
+<nav>
+	<ul>
+		{% if user.is_authenticated %}
+		<h4> Welcome {{ user.get_username }}! </h4>
+		
+		<li>
+			<form class="logout-link" action="/logout/" method="post">
+				{% csrf_token %}
+				<button type="submit">Logout</button>
+			</form>
+		</li>
+		{% else %}
+			<li><a href="/login/">Login</a></li>
+			<li><a href="/signup/">Signup</a></li>
+		{% endif %}
+	</ul>
+</nav>
+<hr>
+</header>
+		
+    </div>
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+            {% block content %}
+            {% endblock %}
+            </div>
+        </div>
+    </div>
+</body>
+
+
+		
+</body>
+</html>

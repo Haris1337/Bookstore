@@ -1,0 +1,21 @@
+{% extends 'book/base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<h2>Add a new book</h2>
+<form action="/add/" method="post">
+	{% csrf_token %}
+	<label for="title">Title</label> 
+	<br>
+	<input type="text" name="title" id="title"/>
+	<br>
+	
+	<label for="price">Price</label> 
+	<br>
+	<input type="number" name="price" id="price"/>
+	<br>
+	<input type = "submit" value="Submit"/>
+</form>
+	<br>
+	<a href="http://127.0.0.1:8000/books">Return to store</a>
+{% endblock %}

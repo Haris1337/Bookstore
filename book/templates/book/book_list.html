@@ -1,0 +1,30 @@
+{% extends 'book/base.html' %}
+
+
+{% block content %}
+<h2>List of books</h2>
+{% if user.is_staff %}
+<a href="/add/">Add book</a>
+
+<ul>
+
+	{% for book in books %}
+	<li>
+			<a href="/purchase/{{book.id}}">Title: {{book.title}}</a> <br>	
+			Price: {{book.price}}</li> <br> 
+			
+	{% endfor %}
+</ul>
+{% else %}
+<ul>
+
+	{% for book in books %}
+	<li>
+			<a href="/purchase/{{book.id}}">Title: {{book.title}}</a> <br>	
+			Price: {{book.price}}</li> <br> 
+			
+	{% endfor %}
+</ul>
+{% endif %}
+
+{% endblock %}
